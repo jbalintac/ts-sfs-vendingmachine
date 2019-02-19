@@ -12,6 +12,11 @@ namespace VendingMachine.Services
 
         private VendingMachineContext _context;
         private CoinChangerService _coinChangerService;
+        private const string SUCCESS_MESSAGE = "Thank you";
+        private const string PRODUCT_NOT_AVAILABLE = "Product not available.";
+        private const string INSUFFICIENT_AMOUNT = "Insufficient amount";
+        private const string INSUFFICIENT_CHANGE = "Insufficient coin to make a change.";
+
         public VendingMachineService(VendingMachineContext context, CoinChangerService coinChangerService)
         {
             _context = context;
@@ -34,9 +39,9 @@ namespace VendingMachine.Services
                     },
                     AvailableCoins = new List<Coin>
                     {
-                        new Coin { Id = 1, SessionId = 1,  Name = "10 cent", Value = 0.10M, Quantity = 0},
-                        new Coin { Id = 2, SessionId = 1,  Name = "20 cent", Value = 0.20M, Quantity = 0},
-                        new Coin { Id = 3, SessionId = 1,  Name = "50 cent", Value = 0.50M, Quantity = 0},
+                        new Coin { Id = 1, SessionId = 1,  Name = "10 cent", Value = 0.10M, Quantity = 100},
+                        new Coin { Id = 2, SessionId = 1,  Name = "20 cent", Value = 0.20M, Quantity = 100},
+                        new Coin { Id = 3, SessionId = 1,  Name = "50 cent", Value = 0.50M, Quantity = 100},
                         new Coin { Id = 4, SessionId = 1,  Name = "1 euro", Value = 1.0M, Quantity = 100}
                     },
                     CurrentInsertedCoin = 0
@@ -100,17 +105,17 @@ namespace VendingMachine.Services
             {
                 return new TransactionViewModel
                 {
-                    Message = $"Product not available.",
+                    Message = PRODUCT_NOT_AVAILABLE,
                     Session = session
                 };
             }
 
-            // Check if inserted amoun sufficient
+            // Check if inserted amount sufficient
             if (change < 0)
             {
                 return new TransactionViewModel
                 {
-                    Message = $"Insufficient amount",
+                    Message = INSUFFICIENT_AMOUNT,
                     Session = session
                 };
             }
@@ -128,7 +133,7 @@ namespace VendingMachine.Services
             {
                 return new TransactionViewModel
                 {
-                    Message = "Insufficient coin to make a change.",
+                    Message = INSUFFICIENT_CHANGE,
                     Session = session
                 };
             }
@@ -148,7 +153,7 @@ namespace VendingMachine.Services
 
             return new TransactionViewModel
             {
-                Message = "Thank you",
+                Message = SUCCESS_MESSAGE,
                 CoinStatusMessage = coinMessage,
                 Session = session
             };

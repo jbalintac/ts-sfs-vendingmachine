@@ -7,7 +7,7 @@ A very simple vending machine app.
 | |Requirement | Notes |
 |--|--|--|
 | [x] | .Net core | Version: 2.1 | 
-| [x] | Frontend Framework | Angular 5+  |
+| [x] | Frontend Framework | Angular 5+, Bootstrap 4+  |
 | [x] | Unit test | CoinChangerService unit test |
 
 ## Improvement Recommendations
@@ -19,11 +19,10 @@ A very simple vending machine app.
 - Add Masonry for the card display.
 - Responsive and mobile friendly UI.
 - The template is currently static, utilize \*ngFor
-- Format decimal to ##.##
 
 ### Backend
 - Add fluent validation on API
-- Use constants for strings messages
+- Use constants service (for ArgumentException error message, or create a new Exception too).
 
 ## Additional Case Requirments
 - If product is no longer available (0 portions), display "Product not available.". 
