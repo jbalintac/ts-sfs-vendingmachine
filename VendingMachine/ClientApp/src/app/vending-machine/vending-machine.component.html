@@ -1,0 +1,155 @@
+<ng-container *ngIf="session$ | async as session">
+  <div class="mt-3 mb-5 text-center">
+    <h3 class="display-4">Vending Machine</h3>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="card text-center ml-auto border-info" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableProducts[0].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableProducts[0].price}} eur ea
+            ({{session.availableProducts[0].quantity}} remaining)
+          </p>
+          <button (click)="purchase(session.availableProducts[0])" class="btn btn-primary">
+            Purchase
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center mr-auto border-info" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableProducts[1].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableProducts[1].price}} eur ea
+            ({{session.availableProducts[1].quantity}} remaining)
+          </p>
+          <button (click)="purchase(session.availableProducts[1])" class="btn btn-primary">
+            Purchase
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-6">
+      <div class="card text-center ml-auto border-info" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableProducts[2].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableProducts[2].price}} eur ea
+            ({{session.availableProducts[2].quantity}} remaining)
+          </p>
+          <button (click)="purchase(session.availableProducts[2])" class="btn btn-primary">
+            Purchase
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card text-center mr-auto border-info" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableProducts[3].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableProducts[3].price}} eur ea
+            ({{session.availableProducts[3].quantity}} remaining)
+          </p>
+          <button (click)="purchase(session.availableProducts[3])" class="btn btn-primary">
+            Purchase
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <h5 class="mt-3 mb-3 text-center">Insert Coin: {{session.currentInsertedCoin}}</h5>
+  <div class="row justify-content-center">
+    <div class="col d-none d-sm-none d-lg-block"></div>
+    <div class="col">
+      <div class="card text-center" style="width: 10rem; height: 10rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableCoins[0].name}}
+          </h5>
+          <p class="card-text text-muted">
+            ({{session.availableCoins[0].quantity}} remaining)
+          </p>
+          <button (click)="insertCoin(session.availableCoins[0])" class="btn btn-warning">
+            Insert
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center" style="width: 10rem; height: 10rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableCoins[1].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableCoins[1].quantity}} remaining
+          </p>
+          <button (click)="insertCoin(session.availableCoins[1])" class="btn btn-warning">
+            Insert
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center" style="width: 10rem; height: 10rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableCoins[2].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableCoins[2].quantity}} remaining
+          </p>
+          <button (click)="insertCoin(session.availableCoins[2])" class="btn btn-warning">
+            Insert
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center" style="width: 10rem; height: 10rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            {{session.availableCoins[3].name}}
+          </h5>
+          <p class="card-text text-muted">
+            {{session.availableCoins[3].quantity}} remaining
+          </p>
+          <button (click)="insertCoin(session.availableCoins[3])" class="btn btn-warning">
+            Insert
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-center" style="width: 10rem; height: 10rem;">
+        <div class="card-body">
+          <button (click)="returnCoins()" class="btn btn-danger btn-lg mt-3">
+            Return Coins
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col d-none d-sm-none d-lg-block"></div>
+  </div>
+
+  <div class="mt-3 mb-3 text-center">
+    <h3>{{message}}</h3>
+    <h5>{{coinStatusMessage}}</h5>
+  </div>
+
+</ng-container>
