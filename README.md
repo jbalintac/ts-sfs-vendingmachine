@@ -31,7 +31,7 @@ A very simple vending machine app.
 
 
 ## Build & Development server
-Open in `VS 2017` to run or execute `dotnet run` on the `VendingMachine` directory. The webserver will point to [localhost:5001](https://localhost:5001).
+Open in `VS 2017` to run or execute `dotnet publish -c Release` only once then `dotnet run`subsequently on the `VendingMachine` directory. The webserver will point to [localhost:5001](https://localhost:5001).
 
 ## Running unit tests
 Run `dotnet test` to execute the unit tests on `VendingMachine.Test` directory.
