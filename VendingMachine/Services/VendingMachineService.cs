@@ -141,7 +141,7 @@ namespace VendingMachine.Services
             // Create return message
             if (changeReturn.Any())
             {
-                coinMessage = $"Returned [{session.CurrentInsertedCoin}]: " + string.Join(", ", changeReturn.Select(c => $"{c.Name} ({c.Quantity})"));
+                coinMessage = $"Returned [{change}]: " + string.Join(", ", changeReturn.Select(c => $"{c.Name} ({c.Quantity})"));
             }
 
             // Deduct values on product and inserted coins
